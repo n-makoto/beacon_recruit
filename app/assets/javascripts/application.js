@@ -13,3 +13,13 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+// topページのkeyvisualを1ページ丸ごと表示させるスクリプト
+$(document).ready(function () {
+  hsize = $(window).height();
+  $(".keyvisual").css("height", hsize + "px");
+});
+$(window).resize(function () {
+  hsize = $(window).height();
+  $(".keyvisual").css("height", hsize + "px");
+});

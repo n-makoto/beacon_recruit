@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BeaconRecruit</title>
+    <title>Meecon</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -19,19 +19,19 @@
   </head>
 
   <body>
-    <nav class="red">
-      <div class="nav-wrapper container">
-          <a href="/" class="brand-logo">Logo</a>
+    <nav class="white z-depth-0" style="padding:8px 17px;">
+      <div class="nav-wrapper">
+          <a href="/" class="brand-logo" style="color:#55B447;">Meecon</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <% if user_signed_in? %>
               <li>ログインユーザー： <%= current_user.username %></li>
-              <li><%= link_to 'プロフィール変更', '/users/edit' %></li>
-              <li><%= link_to "ログアウト", "/users/sign_out",{ class: :"waves-effect waves-light btn" } %></li>
+              <li><%= link_to 'プロフィール変更', '/users/edit', { style: "color:#636563;" } %></li>
+              <li><%= link_to "ログアウト", "/users/sign_out", { style: "color:#636563;" }%></li>
             <% else %>
-              <li><%= link_to "TOP画面", "/" %></li>
-              <li><%= link_to "新規作成", "/users/sign_up" %></li>
-              <li><%= link_to "ログイン", "/users/sign_in" %></li>
+              <li><%= link_to "TOP画面", "/", { style: "color:#636563;" } %></li>
+              <li><%= link_to "新規作成", "/users/sign_up", { style: "color:#636563;" } %></li>
+              <li><%= link_to "ログイン", "/users/sign_in", { style: "color:#636563;" } %></li>
             <% end %>
           </ul>
           <ul class="side-nav" id="mobile-demo">
@@ -51,8 +51,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div class="container">
       <%= yield %>
-    </div>
+      <%= javascript_include_tag "application" %>
   </body>
 </html>
