@@ -14,4 +14,8 @@ Rails.application.routes.draw do
     post 'signin' => 'devise/sessions#create'
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  namespace :api, default: {format: :json} do
+    resources :memos, only: :create
+  end
 end
