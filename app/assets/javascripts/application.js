@@ -18,8 +18,6 @@
 $(document).ready(function() {
   hsize = $(window).height();
   $(".keyvisual").css("height", hsize + "px");
-  $("#inputted_uname").text($(".current_user_name").text());
-  $("#inputted_email").text($(".current_user_email").text());
 });
 $(window).resize(function() {
   hsize = $(window).height();

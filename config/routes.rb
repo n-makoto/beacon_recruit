@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'recruiters/index'
+  get 'recruiters/regist' => 'recruiters#regist'
+
   get 'users/index'
 
   root to: "home#index"
