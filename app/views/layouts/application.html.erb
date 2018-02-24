@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BeaconRecruit</title>
+    <title>Meecon</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -19,40 +19,44 @@
   </head>
 
   <body>
-    <nav class="teal accent-4">
-      <div class="nav-wrapper container">
-          <a href="/" class="brand-logo">Logo</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <% if user_signed_in? %>
-              <li>ログインユーザー： <%= current_user.username %></li>
-              <li><%= link_to 'プロフィール変更', '/users/edit' %></li>
-              <li><%= link_to "ログアウト", "/users/sign_out",{ class: :"waves-effect waves-light btn" } %></li>
-            <% else %>
-              <li><%= link_to "TOP画面", "/" %></li>
-              <li><%= link_to "新規作成", "/users/sign_up" %></li>
-              <li><%= link_to "ログイン", "/users/sign_in" %></li>
-            <% end %>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <% if user_signed_in? %>
-              <li>ログインユーザー： <%= current_user.username %></li>
-              <li><%= link_to 'プロフィール変更', '/users/edit' %></li>
-              <li><%= link_to "ログアウト", "/users/sign_out",{ class: :"waves-effect waves-light btn" } %></li>
-            <% else %>
-              <li><%= link_to "TOP画面", "/" %></li>
-              <li><%= link_to "新規作成", "/users/sign_up" %></li>
-              <li><%= link_to "ログイン", "/users/sign_in" %></li>
-            <% end %>
-          </ul>
+    <nav class="white z-depth-0" style="padding:8px 17px;">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo" style="color:#55B447;">Meecon</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down" style: "color:#636563;">
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.username, '/users/edit', { style: "color:#636563;" } %></li>
+            <li><%= link_to "ログアウト", "/users/sign_out", { style: "color:#636563;" }%></li>
+          <% else %>
+            <li><%= link_to "TOP画面", "/", { style: "color:#636563;" } %></li>
+            <li><%= link_to "新規作成", "/users/sign_up", { style: "color:#636563;" } %></li>
+            <li><%= link_to "ログイン", "/users/sign_in", { style: "color:#636563;" } %></li>
+          <% end %>
+        </ul>
+        <ul class="side-nav" id="mobile-demo" style="color:#636563;">
+          <% if user_signed_in? %>
+            <li>
+              <div class="row">
+                <div class="s5"><img src="<%= "/user_images/#{current_user.user_image}" %>"></div>
+                <div class="s7"><%= link_to current_user.username, '/users/edit', { style: "color:#636563;" } %></div>
+              </div>
+            </li>
+            <li><%= link_to "ログアウト", "/users/sign_out", { style: "color:#636563;" }%></li>
+          <% else %>
+            <li><%= link_to "TOP画面", "/", { style: "color:#636563;" } %></li>
+            <li><%= link_to "新規作成", "/users/sign_up", { style: "color:#636563;" } %></li>
+            <li><%= link_to "ログイン", "/users/sign_in", { style: "color:#636563;" } %></li>
+          <% end %>
+        </ul>
       </div>
     </nav>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div class="container">
-      <%= yield %>
-    </div>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
