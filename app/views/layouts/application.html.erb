@@ -25,11 +25,9 @@
         <a href="#" data-activates="mobile-demo" class="button-collapse">
           <i class="material-icons">menu</i>
         </a>
-        <ul class="right hide-on-med-and-down">
+        <ul class="right hide-on-med-and-down" style: "color:#636563;">
           <% if user_signed_in? %>
-            <li>ログインユーザー：
-              <%= current_user.username %></li>
-            <li><%= link_to 'プロフィール変更', '/users/edit', { style: "color:#636563;" } %></li>
+            <li><%= link_to current_user.username, '/users/edit', { style: "color:#636563;" } %></li>
             <li><%= link_to "ログアウト", "/users/sign_out", { style: "color:#636563;" }%></li>
           <% else %>
             <li><%= link_to "TOP画面", "/", { style: "color:#636563;" } %></li>
@@ -37,16 +35,19 @@
             <li><%= link_to "ログイン", "/users/sign_in", { style: "color:#636563;" } %></li>
           <% end %>
         </ul>
-        <ul class="side-nav" id="mobile-demo">
+        <ul class="side-nav" id="mobile-demo" style="color:#636563;">
           <% if user_signed_in? %>
-            <li>ログインユーザー：
-              <%= current_user.username %></li>
-            <li><%= link_to 'プロフィール変更', '/users/edit' %></li>
-            <li><%= link_to "ログアウト", "/users/sign_out",{ class: :"waves-effect waves-light btn" } %></li>
+            <li>
+              <div class="row">
+                <div class="s5"><img src="<%= "/user_images/#{current_user.user_image}" %>"></div>
+                <div class="s7"><%= link_to current_user.username, '/users/edit', { style: "color:#636563;" } %></div>
+              </div>
+            </li>
+            <li><%= link_to "ログアウト", "/users/sign_out", { style: "color:#636563;" }%></li>
           <% else %>
-            <li><%= link_to "TOP画面", "/" %></li>
-            <li><%= link_to "新規作成", "/users/sign_up" %></li>
-            <li><%= link_to "ログイン", "/users/sign_in" %></li>
+            <li><%= link_to "TOP画面", "/", { style: "color:#636563;" } %></li>
+            <li><%= link_to "新規作成", "/users/sign_up", { style: "color:#636563;" } %></li>
+            <li><%= link_to "ログイン", "/users/sign_in", { style: "color:#636563;" } %></li>
           <% end %>
         </ul>
       </div>

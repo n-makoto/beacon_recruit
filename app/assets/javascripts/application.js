@@ -18,6 +18,7 @@
 $(document).ready(function() {
   hsize = $(window).height();
   $(".keyvisual").css("height", hsize + "px");
+  $(".button-collapse").sideNav();
 });
 $(window).resize(function() {
   hsize = $(window).height();
